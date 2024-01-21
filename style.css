@@ -1,0 +1,205 @@
+
+@keyframes day-transition {
+    from {background-color: white;}
+    to {background-color: black;}
+}
+@keyframes night-transition {
+    from {background-color: black;}
+    to {background-color: white;}
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+video {
+    width: auto;
+    height: auto;
+    object-fit: fill;
+}
+
+p {
+    margin: 0;
+}
+
+body {
+    background-color: white;
+    font-family: sans-serif;
+    animation-name: day-transition;
+    animation-duration: 43200s;
+    animation-fill-mode: forwards;
+    font-size: 50px;
+    display: grid;
+}
+
+.split {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 0px;
+}
+
+/* Control the left side */
+.video-container {
+    margin: 0;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    left:1.5%;
+}
+.video-container::after {
+    content: "";
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background-color: hsl(var(--h, 0deg), var(--s, 50%), var(--l, 50%));
+    transition: background .5s ease-out;
+}
+/* Control the right side */
+.comparison {
+    left:50%;
+    background: white;
+    position: relative;
+    width: 50%;
+    top:0;
+    height: 1400vh;
+}
+.comparison-item {
+    width: 100%;
+    height: 8.3333%;
+    background: black;
+    background: rgba(0,0,0,0);
+    color: black;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+.comparison-item div {
+    mix-blend-mode: overlay;
+    padding: 2vh;
+    opacity: 1.0;
+    
+}
+.comparison-item:nth-child(n + 8) div{
+    color: lightgray;
+}
+.comparison-item:nth-child(2){
+    background: hsl(0,0%,70%);
+}
+.comparison-item:nth-child(3){
+    background: hsl(0,0%,65.6%);
+}
+.comparison-item:nth-child(4){
+    background: hsl(0,0%,62.4%);
+}
+.comparison-item:nth-child(5){
+    background: hsl(0,0%,59.3%);
+}
+.comparison-item:nth-child(6){
+    background: hsl(0,0%,56.2%);
+}
+.comparison-item:nth-child(7){
+    background: hsl(0,0%,53.1%);
+}
+.comparison-item:nth-child(8){
+    background: hsl(0,0%,50.0%);
+}
+.comparison-item:nth-child(9){
+    background: hsl(0,0%,46.8%);
+}
+.comparison-item:nth-child(10){
+    background: hsl(0,0%,43.7%);
+}
+.comparison-item:nth-child(11){
+    background: hsl(0,0%,40.6%);
+}
+.comparison-item:nth-child(12){
+    background: hsl(0,0%,37.4%);
+}
+.comparison-item:nth-child(13){
+    background: hsl(0,0%,34.3%);
+}
+.comparison-item:nth-child(14){
+    background: hsl(0,0%,31.2%);
+}
+.comparison-item:nth-child(15){
+    background: hsl(0,0%,28.125%);
+}
+.comparison-item:nth-child(16){
+    background: hsl(0,0%,25%);
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background:  black;
+        animation-name: night-transition;
+    }
+    
+    .comparison{
+        background: black;
+    }
+    
+    .comparison-item {
+        color: white;
+    }
+    
+    .comparison-item:nth-child(n + 8) div{
+        color: lightgray;
+    }
+    .comparison-item:nth-child(16){
+        background: hsl(0,0%,70%);
+    }
+    .comparison-item:nth-child(15){
+        background: hsl(0,0%,65.6%);
+    }
+    .comparison-item:nth-child(14){
+        background: hsl(0,0%,62.4%);
+    }
+    .comparison-item:nth-child(13){
+        background: hsl(0,0%,59.3%);
+    }
+    .comparison-item:nth-child(12){
+        background: hsl(0,0%,56.2%);
+    }
+    .comparison-item:nth-child(11){
+        background: hsl(0,0%,53.1%);
+    }
+    .comparison-item:nth-child(10){
+        background: hsl(0,0%,50.0%);
+    }
+    .comparison-item:nth-child(9){
+        background: hsl(0,0%,46.8%);
+    }
+    .comparison-item:nth-child(8){
+        background: hsl(0,0%,43.7%);
+    }
+    .comparison-item:nth-child(7){
+        background: hsl(0,0%,40.6%);
+    }
+    .comparison-item:nth-child(6){
+        background: hsl(0,0%,37.4%);
+    }
+    .comparison-item:nth-child(5){
+        background: hsl(0,0%,34.3%);
+    }
+    .comparison-item:nth-child(4){
+        background: hsl(0,0%,31.2%);
+    }
+    .comparison-item:nth-child(3){
+        background: hsl(0,0%,28.125%);
+    }
+    .comparison-item:nth-child(2){
+        background: hsl(0,0%,25%);
+    }
+}
